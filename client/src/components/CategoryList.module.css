@@ -1,0 +1,95 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap'); */
+
+@font-face {
+  font-family: "High Tide";
+  src: url("/fonts/HighTide/High_Tide.ttf") format("ttf"),
+       /* url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir/Avenir.ttc") format("ttc"),
+       /* url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+}
+
+@font-face {
+  font-family: "din-regular";
+  src: url("/fonts/Din/din-regular.ttf") format("ttf");
+}
+
+
+
+.liMonogram { 
+  background: url('../images/Monogram_Icon.png') no-repeat; 
+  background-size: 50px;
+}
+
+.ConditionCategoryIcon {
+  height: 50px;
+  /* background-color: red; */
+  padding-right: 28px;
+
+}
+
+.conditionTitle {
+  /* font-family: Avenir; */
+  /* text-align: center;
+  border: 3px solid green; */
+  /* margin: auto; */
+  /* margin-left: 30px;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px; */
+  display: inline-block;
+  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 3px solid green;
+  /* page-break-after: always; */
+}
+
+h1 {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
+h1, h3, h4, h5, h6 {
+  color: #24592C;
+  font-family: 'Asap Condensed', sans-serif;
+  /* page-break-inside: avoid; */
+  /* page-break-after: always; */
+}
+
+h6 {
+  font-weight: bold;
+}
+
+.conditionText {
+  color: #63a144;
+  page-break-after: always;
+
+}
+
+
+
+
+p {
+  /* color: red; */
+  font-family: "Avenir";
+  /* page-break-inside: avoid; */
+
+  /* page-break-after: always; */
+
+}
+
+
+
+
+
+.CardBody {
+  display: inline-block;
+  page-break-inside: avoid !important;
+  /* page-break-after: always; */
+  background-color: red;
+}
+

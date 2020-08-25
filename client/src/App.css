@@ -1,0 +1,24 @@
+.App {
+  /* background-color: ; */
+}
+
+.li-monogram { 
+  list-style-image: src="Monogram_Icon.png"; 
+}
+
+.break {
+  display: block;
+  /* page-break-before: avoid; */
+  /* page-break-after: avoid !important; */
+  page-break-inside: avoid !important;
+  }
+  
+.page-break {
+  display: block;
+  /* page-break-before: always; */
+  page-break-inside: avoid !important;
+  }
+  
+.page-break {
+  border: 1px red rgba(0, 0, 0, 0);
+  }

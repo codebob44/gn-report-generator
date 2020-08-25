@@ -1,0 +1,20 @@
+.conditionText {
+  
+  font-family: Avenir;
+  font-weight: bold;
+  color: #63a144;
+  padding-left: 64px;
+  /* page-break-after: always; */
+  /* page-break-inside: avoid; */
+}
+
+/* p { */
+  /* display: block; */
+  /* page-break-inside: avoid; */
+  /* page-break-after: always; */
+/* } */
+
+.CardBody {
+  display: inline-block;
+  page-break-inside: avoid;
+}

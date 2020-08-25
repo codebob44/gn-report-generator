@@ -1,0 +1,18 @@
+
+
+.conditionText {
+  font-family: Avenir;
+  font-weight: bold;
+  color: #63a144;
+  padding-left: 64px;
+  display: inline-block;
+  /* page-break-inside: avoid !important; */
+  /* page-break-after: always !important; */
+}
+
+.CardBody {
+  display: inline-block;
+  page-break-inside: avoid !important;
+  /* page-break-after: always; */
+  background-color: red;
+}

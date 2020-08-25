@@ -1,0 +1,20 @@
+
+
+
+/* <p style="page-break-after:always;"></p> */
+/* .pageBreak {
+  page-break-after:always;
+} */
+
+/* .noBreak {
+  page-break-inside: avoid;
+} */
+
+p {
+  page-break-after: always;
+}
+
+h3 {
+  page-break-after: always;
+  background-color: red;
+}
