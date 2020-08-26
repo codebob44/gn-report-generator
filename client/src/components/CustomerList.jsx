@@ -12,7 +12,7 @@ const CustomerList = (props) => {
     const fetchData = async () => {
       try {
         const response = await CustomerFinder.get("/");
-        console.log("response: ", response);
+        //console.log("response: ", response);
         setCustomers(response.data.data.customer);
       } catch (error) {
         console.log(error);
@@ -50,6 +50,9 @@ const CustomerList = (props) => {
       <table className="table table-hover table-dark"> 
         <thead>
         <tr className="bg-primary">
+            <th scope="col">
+            <input type="checkbox" aria-label="Checkbox for following text input" />
+            </th>
             <th scope="col">id</th>
             <th scope="col">Customer Number</th>
             <th scope="col">First Name</th>
@@ -64,7 +67,8 @@ const CustomerList = (props) => {
         <tbody>
           {customers && customers.map(customer => {
             return (
-              <tr onClick={() => handleCustomerSelect(customer.customernumber)} key={customer.id}>
+              <tr  key={customer.id}>
+                <td><input type="checkbox" /></td>
                 <td>{customer.id}</td>
                 <td>{customer.customernumber}</td>
                 <td>{customer.firstname}</td>
@@ -74,7 +78,9 @@ const CustomerList = (props) => {
                 <td>{customer.city}</td>
                 <td>{customer.zipcode}</td>
                 
-                
+                <td>
+                  <button onClick={() => handleCustomerSelect(customer.customernumber)} className="button btn-warning">View</button>
+                </td>
                 <td>
                   <button disabled onClick={(e) => handleUpdate(e, customer.id)} className="button btn-warning">Update</button>
                 </td>
