@@ -5,7 +5,7 @@ import CustomerList from '../components/CustomerList';
 
 const Home = () => {
   return (
-    <div>
+    <div className="container">
       <Header />
       <AddCustomer />
       <CustomerList />

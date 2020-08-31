@@ -188,59 +188,7 @@ app.get('/api/v1/customers/:customernumber', async (req, res) => {
     console.log(error);
   }
   
-
-
-  
-
-// (async () => {
-
-//   try {
-//     const browser = await puppeteer.launch();
-//     const page = await browser.newPage();
-//     await page.goto(`http://localhost:3000/customers/650866`, {waitUntil: 'networkidle2'});
-//     //await page.emulate('screen');
-//     //await page.emulateMedia('screen');
-//     await page.emulateMediaType('screen');
-//     await page.pdf({
-//       path: './650866react.pdf', // path (relative to CWD) to save the PDF to
-//       printBackground: true, // print background colors
-//       //width: '563px',
-//       //height: '975px',
-//       //width: '612px', // match the css width and height we set for our PDF
-      
-//       //height: '792px',
-//       //format: 'Letter'
-//       format: 'Legal'
-//     });
-//     await browser.close();
-    
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   console.log("done");
-  
-//  })();
-
 });
-
-
-
-// app.get('/customers/screenshot', async (req, res) => {
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-//   await page.goto(`http://localhost:3000/customers/2066`); // URL is given by the "user" (your client-side application)
-//   const screenshotBuffer = await page.screenshot();
-
-//   // Respond with the image
-//   res.writeHead(200, {
-//       'Content-Type': 'image/png',
-//       'Content-Length': screenshotBuffer.length
-//   });
-//   res.end(screenshotBuffer);
-
-//   await browser.close();
-// });
-
 
 
 //-----------TODO-------- only customer_condcodes table
@@ -261,12 +209,10 @@ app.post('/api/v1/customers', async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  
-
 });
 
-// -----------TODO------- set up yet, only using customer_condcodes table
-// update restaurant by id
+// -----------TODO------- not set up yet, only using customer_condcodes table
+// update customer by id
 app.put('/api/v1/customers/:id', async (req, res) => {
   try {
     const results = await db.query("UPDATE customer_condcodes SET customernumber = $1, firstname = $2, lastname = $3 WHERE id = $4 returning *", [req.body.customernumber, req.body.firstname, req.body.lastname, req.params.id]);
@@ -298,36 +244,36 @@ app.delete('/api/v1/customers/:id', async (req, res) => {
 
 
 // CREATE PDF for ONE CUSTOMER
-// app.get('/api/v1/customers/pdf/:customernumber', (req, res) => {
-//   console.log("Starting to create pdf for customer number: ", req.params.customernumber);
-//   const createPDF = async function () {
-//     //let customernumber = req.params.customernumber;
-//     try {
-//       console.log("running puppeteer now...");
-//         const browser = await puppeteer.launch();
-//         const page = await browser.newPage();
-//         await page.goto(`http://localhost:3000/customers/${req.params.customernumber}`, {waitUntil: 'networkidle0'});
-//         await page.emulateMediaType('screen');
-//         await page.pdf({
-//           path: `./pdfs/${req.params.customernumber}react.pdf`, // path (relative to CWD) to save the PDF to
-//           printBackground: true, // print background colors
-//           format: 'Legal'
-//         });
-//         await browser.close();
+app.get('/api/v1/customers/pdf/:customernumber', (req, res) => {
+  console.log("Starting to create pdf for customer number: ", req.params.customernumber);
+  const createPDF = async function () {
+    //let customernumber = req.params.customernumber;
+    try {
+      console.log("running puppeteer now...");
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(`http://localhost:3000/customers/${req.params.customernumber}`, {waitUntil: 'networkidle0'});
+        await page.emulateMediaType('screen');
+        await page.pdf({
+          path: `./pdfs/${req.params.customernumber}react.pdf`, // path (relative to CWD) to save the PDF to
+          printBackground: true, // print background colors
+          format: 'Legal'
+        });
+        await browser.close();
         
     
-//       }
-//         catch (error) {
-//           console.log(error);
-//         }
-//         console.log("done");
+      }
+        catch (error) {
+          console.log(error);
+        }
+        console.log("done");
         
-//    };
-//    createPDF();
-//   res.status(204).json({
-//     status: "success"
-//   });
-// });
+   };
+   createPDF();
+  res.status(204).json({
+    status: "success"
+  });
+});
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {

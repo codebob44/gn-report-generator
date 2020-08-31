@@ -19,7 +19,7 @@ const CustomerList = (props) => {
       }
     };
    fetchData();
-  },[]);
+  },[ setCustomers ]);
 
   const handleDelete = async (e, id) => {
     e.stopPropagation();
@@ -42,6 +42,11 @@ const CustomerList = (props) => {
 
   const handleCustomerSelect = async (customernumber) => {
     history.push(`/customers/${customernumber}`);
+ 
+  }
+
+  const handlePdf = async (customernumber) => {
+    history.push(`/customers/pdf/${customernumber}`);
  
   }
 
@@ -79,14 +84,17 @@ const CustomerList = (props) => {
                 <td>{customer.zipcode}</td>
                 
                 <td>
+                  <button onClick={() => handlePdf(customer.customernumber)} className="button btn-warning">PDF</button>
+                </td>
+                <td>
                   <button onClick={() => handleCustomerSelect(customer.customernumber)} className="button btn-warning">View</button>
                 </td>
                 <td>
                   <button disabled onClick={(e) => handleUpdate(e, customer.id)} className="button btn-warning">Update</button>
                 </td>
-                <td>
+                {/*<td>
                   <button disabled onClick={(e) => handleDelete(e ,customer.id)} className="button btn-danger">Delete</button>
-                </td>
+                </td>*/}
                 
               </tr>
               );  
